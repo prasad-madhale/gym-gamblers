@@ -61,6 +61,9 @@ class GamblersEnv(gym.Env):
         '''
         print("Current capital: {}".format(self.cash_in_hand))
 
+    def sample_action(self):
+        return random.randint(0, self.cash_in_hand)
+
     def P(self, state, action):
         next_state_win = min(self.goal_cash, state + action)
         next_state_lose = max(0,state - action)
